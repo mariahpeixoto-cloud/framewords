@@ -1,6 +1,6 @@
 
 
-export class CreateTodDto {
+export class CreateTodoDto {
 title:       string;
 description: string;
 
