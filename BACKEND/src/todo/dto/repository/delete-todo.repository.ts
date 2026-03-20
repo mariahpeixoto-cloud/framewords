@@ -1,12 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/shared/databases/prisma.database";
-import { CreateTodoDto } from "../dto/create-tod.dto";
+import { UpdateTodoDto } from "../update-tod.dto";
+
 
 @Injectable()
-export class CreateTodRepository {
+export class deleteTodoRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async execute(data: CreateTodoDto) {
-        return await this.prisma.todo.create({ data });
+    async execute (id: string) {
+        return await this.prisma.todo.delete({ where: { id } });
     }
 }
