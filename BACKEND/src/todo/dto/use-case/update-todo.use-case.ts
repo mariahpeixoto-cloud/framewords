@@ -5,6 +5,9 @@ import { UpdateTodoDto } from "../update-tod.dto";
 
 @Injectable()
 export class updateTodoUseCase {
+    update(id: string, updateTodoDto: UpdateTodoDto) {
+      throw new Error('Method not implemented.');
+    }
     constructor(
         private readonly updateTodoRepository: UpdateTodoRepository,
         private readonly logger: Logger

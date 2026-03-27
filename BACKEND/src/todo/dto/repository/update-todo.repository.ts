@@ -4,7 +4,7 @@ import { UpdateTodoDto } from "../update-tod.dto";
 
 
 @Injectable()
-export class UpdateTodoRepository {
+export class UpdateTodoRepository{
     update(data: UpdateTodoDto, id: string) {
         throw new Error("Method not implemented.");
     }
