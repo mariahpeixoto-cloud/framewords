@@ -4,16 +4,13 @@ import { FindAllTodoRepository } from "../repository/find-all-todos.repository";
 
 @Injectable()
 export class FindAllTodoUseCase{
-    findAll() {
-      throw new Error('Method not implemented.');
-    }
     constructor(
         private readonly findAllTodoRepository:  FindAllTodoRepository,
         private readonly logger: Logger
 
     ){}
 
-    async execute() {
+    async findAll() {
         try {
             this.logger.log('Finding all todos...');
             const todos = await this.findAllTodoRepository.execute();

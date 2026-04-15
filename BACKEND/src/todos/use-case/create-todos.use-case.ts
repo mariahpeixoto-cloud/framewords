@@ -4,16 +4,14 @@ import { CreateTodoDto } from "../dto/create-todos.dto";
 
 @Injectable()
 export class CreateTodoUseCase{
-    create(createTodoDto: CreateTodoDto) {
-      throw new Error('Method not implemented.');
-    }
+
     constructor(
         private readonly createTodoRepository:  CreateTodoRepository,
         private readonly logger: Logger
 
     ){}
 
-    async execute(data: CreateTodoDto) {
+    async create(data: CreateTodoDto) {
         try {
             this.logger.log('Creating toDo...');
             const todo = await this.createTodoRepository.execute(data);

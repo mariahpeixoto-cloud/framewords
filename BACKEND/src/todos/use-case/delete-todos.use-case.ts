@@ -1,19 +1,14 @@
 import { Injectable, Logger, NotFoundException } from "@nestjs/common";
-import { deleteTodoRepository } from "../repository/delete-todos.repository";
-
-
+import { deleteTodoRepository, FindTodoByIdRepository } from "../repository";
 
 
 @Injectable()
 export class DeleteTodoUseCases {
-    delete(id: string) {
-      throw new Error('Method not implemented.');
-    }
-    logger: any;
-    deleteTodoRepository: any;
-    findTodoByIdRepository: any;
+constructor(private readonly logger: Logger,
+    private readonly deleteTodoRepository: deleteTodoRepository,
+    private readonly findTodoByIdRepository: FindTodoByIdRepository) {}
 
-    async execute(id: string) {
+    async delete(id: string) {
         try{
             this.logger.log('Deleting toDo...');
 
@@ -22,7 +17,7 @@ export class DeleteTodoUseCases {
      if (!todo) {
         throw new NotFoundException('ToDo not found');
      }
-     await this.deleteTodoRepository.delete(id);
+     await this.deleteTodoRepository.execute(id);
      this.logger.log('Todo deleted successfully.');
           return todo;
         } catch (error) {
