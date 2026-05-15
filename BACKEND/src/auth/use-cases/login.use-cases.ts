@@ -44,7 +44,11 @@ export class LoginUseCases {
 
         return {
             accessToken,
-            user,
+            user: {
+                id: user.id,
+                email: user.email,
+                name: user.name,
+            },
         };
     }
 }
